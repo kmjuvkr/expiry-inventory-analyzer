@@ -2,7 +2,8 @@
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
-const KOREAN_FONT_PATH = '/fonts/NanumBarunGothicLight.ttf';
+// GitHub Pages 하위경로 배포 시 basePath 접두어가 필요하므로 빌드 시 주입된 값을 사용.
+const KOREAN_FONT_PATH = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/fonts/NanumBarunGothicLight.ttf`;
 const KOREAN_FONT_NAME = 'NanumBarunGothicLight';
 
 let koreanFontArrayBuffer: ArrayBuffer | null = null;
