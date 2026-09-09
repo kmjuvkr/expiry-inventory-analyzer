@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 210 30% 96%; /* Light Gray #F0F4F7 */
+    --foreground: 210 10% 23%; /* Dark Gray for text */
+
+    --card: 210 30% 98%; /* Slightly lighter than background for cards */
+    --card-foreground: 210 10% 23%;
+
+    --popover: 210 30% 98%;
+    --popover-foreground: 210 10% 23%;
+
+    --primary: 224 64% 28%; /* Dark Navy Blue from image */
+    --primary-foreground: 210 30% 96%; /* Light Gray/Off-white for text on navy */
+
+    --secondary: 210 25% 88%; /* A slightly darker gray than background */
+    --secondary-foreground: 210 10% 15%; /* Darker text for secondary */
+
+    --muted: 210 25% 90%; /* Muted gray */
+    --muted-foreground: 210 10% 40%; /* Muted text */
+
+    --accent: 54 100% 87%; /* Light Yellow from image (#FFF8BE) for row highlighting */
+    --accent-foreground: 60 50% 25%; /* Dark Olive/Brown for text on accent */
+    
+    --destructive: 0 72% 51%; /* Clear Red */
+    --destructive-foreground: 0 0% 98%; /* Light text on red */
+
+    --border: 210 20% 85%;
+    --input: 210 20% 88%; /* Slightly lighter than border for input fields */
+    --ring: 207 70% 55%; /* A slightly darker/more saturated blue for rings (kept original primary for ring) */
+    
+    --chart-1: 224 64% 28%; /* Use new Primary for Chart 1 (Navy Blue) */
+    --chart-2: 35 100% 65%; /* Orange from PRD for Chart 2 */
+    --chart-3: 210 10% 50%; /* Medium Gray */
+    --chart-4: 207 60% 50%; /* Darker Blue */
+    --chart-5: 33 80% 50%; /* Darker Orange (can be revised if needed) */
+
+    --radius: 0.5rem;
+
+    /* Sidebar variables - keep for components that might use them, though not primary layout */
+    --sidebar-background: 210 30% 92%;
+    --sidebar-foreground: 210 10% 20%;
+    --sidebar-primary: 224 64% 28%; 
+    --sidebar-primary-foreground: 210 30% 96%;
+    --sidebar-accent: 54 100% 87%;
+    --sidebar-accent-foreground: 60 50% 25%;
+    --sidebar-border: 210 20% 80%;
+    --sidebar-ring: 207 70% 55%;
+  }
+
+  .dark {
+    /* Define dark theme if needed, for now keeping it light-focused */
+    --background: 210 10% 15%;
+    --foreground: 210 30% 90%;
+
+    --card: 210 10% 20%;
+    --card-foreground: 210 30% 90%;
+
+    --popover: 210 10% 20%;
+    --popover-foreground: 210 30% 90%;
+
+    --primary: 224 60% 35%; /* Adjusted navy for dark mode */
+    --primary-foreground: 210 30% 95%;
+
+    --secondary: 210 10% 25%;
+    --secondary-foreground: 210 30% 85%;
+
+    --muted: 210 10% 22%;
+    --muted-foreground: 210 20% 60%;
+
+    --accent: 54 90% 80%; 
+    --accent-foreground: 60 50% 20%;
+    
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 210 10% 30%;
+    --input: 210 10% 30%;
+    --ring: 224 60% 35%;
+
+    --chart-1: 224 60% 35%;
+    --chart-2: 35 100% 65%; /* Orange from PRD for Chart 2 - Dark mode */
+    --chart-3: 210 10% 60%;
+    --chart-4: 207 50% 40%;
+    --chart-5: 33 70% 40%;
+
+    --sidebar-background: 210 10% 12%;
+    --sidebar-foreground: 210 30% 88%;
+    --sidebar-primary: 224 60% 35%;
+    --sidebar-primary-foreground: 210 30% 95%;
+    --sidebar-accent: 54 90% 80%;
+    --sidebar-accent-foreground: 60 50% 20%;
+    --sidebar-border: 210 10% 25%;
+    --sidebar-ring: 224 60% 35%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .sticky-header thead th {
+    position: sticky;
+    top: 0;
+    background-color: hsl(var(--card));
+    z-index: 10;
+  }
+  .sticky-header thead th::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-bottom: 1px solid hsl(var(--border));
+  }
+}
